@@ -4,6 +4,8 @@ import Deposit from './Deposit';
 import Withdraw from './Withdraw';
 import { ReactComponent as MenuIcon } from '../images/menu.svg';
 import SideBar from '../components/SideBar';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const MyWallet = () => {
     const [isDeposit, setIsDeposit] = useState(true);
@@ -23,17 +25,13 @@ const MyWallet = () => {
   
     return(
         <>
-            <div className="w-7/10 mx-3 mt-4 px-4 py-20 border-2 rounded-2xl bg-[#0c4e74] text-white">
-                <div className='absolute top-8 right-8'>
-                    <button onClick={handleSideBarClick}>
-                        <MenuIcon />
-                    </button>
-                </div>
-                
-                Total Assets
-
+        <div className="min-h-screen bg-custom-blue text-white">
+            <Header handleSideBarClick={handleSideBarClick}/>
+            <div className="w-full mt-4 px-4 py-60 sm:py-60 md:py-80 lg:py-80 border-2 rounded-tl-3xl rounded-tr-3xl bg-white text-black">
             </div>
-            <div className="w-7/10 mx-3 my-2 py-5 border-2 rounded-2xl bg-[#0c4e74] text-white columns-2 gap-0 text-center text-3xl">
+            <Footer />                
+                
+            {/* <div className="w-full my-2 py-5 border-2 rounded-2xl bg-[#0c4e74] text-white columns-2 gap-0 text-center text-3xl">
                 <div
                     className="border-r-2 border-gray-400"
                     onClick={handleDepositClick}
@@ -45,11 +43,14 @@ const MyWallet = () => {
                 >
                     Withdraw
                 </div>
-            </div>
-            {isDeposit?
+            </div> */}
+            
+            {/* {isDeposit?
                 <Deposit /> : <Withdraw />
-            }
-            <SideBar isVisible={isSideBarShown}/>
+            } */}
+            <SideBar isVisible={isSideBarShown}/> 
+        </div>
+        
         </>
     );
 };
